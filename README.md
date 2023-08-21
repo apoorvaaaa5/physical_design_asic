@@ -45,8 +45,9 @@ __Memory Allocation and Stack Pointer__
 
 * Memory allocation refers to the process of assigning and managing memory segments for various data structures, variables, and objects used by a program. It involves allocating memory space from the system's memory pool and releasing it when it is no longer needed to prevent memory leaks.
 * The stack pointer is a register used by a program to keep track of the current position of the program's execution on the call stack.
-#Labwork_for_RISCV_Toolchain
-##C_Program##
+  
+# Labwork_for_RISCV_Toolchain
+## C_Program##
 We wrote a C program for calculating the sum from 1 to n using a text editor, leafpad.
 
 leafpad sumton.c
