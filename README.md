@@ -55,12 +55,19 @@ leafpad sumton.c
 #include<stdio.h>
 
 int main(){
+
 	int i, sum=0, n=26;
+ 
 	for (i=1;i<=n; ++i) {
+ 
 	sum +=i;
+ 
 	}
+ 
 	printf("Sum of numbers from 1 to %d is %d \n",n,sum);
+ 
 	return 0;
+ 
 }
 
 Using the gcc compiler, we compiled the program to get the output.
@@ -108,12 +115,18 @@ The contents of the registers can also be viewed.
 #include <math.h>
 
 int main(){
+
 	unsigned long long int max = (unsigned long long int) (pow(2,64) -1);
+ 
 	unsigned long long int min = (unsigned long long int) (pow(2,64) *(-1));
+ 
 	printf("lowest number represented by unsigned 64-bit integer is %llu\n",min);
+ 
 	printf("highest number represented by unsigned 64-bit integer is %llu\n",max);
+ 
 	return 0;
 }
+
 ![4c1b9763-f327-42a2-9e01-b2cabd2d4bb1](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/c11446f5-b85d-41d9-b2f9-15065a4ad845)
 
 ### Signed 64-bit Number
@@ -121,10 +134,16 @@ int main(){
 #include <math.h>
 
 int main(){
+
 	long long int max = (long long int) (pow(2,63) -1);
+ 
 	long long int min = (long long int) (pow(2,63) *(-1));
+ 
 	printf("lowest number represented by signed 64-bit integer is %lld\n",min);
+ 
 	printf("highest number represented by signed 64-bit integer is %lld\n",max);
+ 
 	return 0;
 }
+
 ![5deac719-8be3-4e35-8d74-127167b288ab](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/3bc3beeb-4801-4913-9c5b-a21bf19b008f)
