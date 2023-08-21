@@ -70,6 +70,7 @@ int main(){
  
 }
 
+
 Using the gcc compiler, we compiled the program to get the output.
 
 gcc sumton.c .\a.out
@@ -127,6 +128,7 @@ int main(){
 	return 0;
 }
 
+
 ![4c1b9763-f327-42a2-9e01-b2cabd2d4bb1](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/c11446f5-b85d-41d9-b2f9-15065a4ad845)
 
 ### Signed 64-bit Number
@@ -146,6 +148,7 @@ int main(){
 	return 0;
 }
 
+
 ![5deac719-8be3-4e35-8d74-127167b288ab](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/3bc3beeb-4801-4913-9c5b-a21bf19b008f)
 
 # Application Binary Interface
@@ -159,8 +162,11 @@ int main(){
    
 For example, consider the 64-bit hexadecimal value 0x0123456789ABCDEF.
 In Little-Endian representation, it would be stored as follows in memory:
+
 ![261368957-307fabf6-7f58-4337-8171-6d62d99a4386](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/785dce04-3042-4f5f-ad81-b78d7d9bfd9b)
+
 In Big-Endian representation, it would be stored as follows in memory:
+
 ![261369046-aa53e082-5878-4e3f-948a-f6f080ed0ed2](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/11ef4771-687c-494f-b034-7cd66984f1cd)
 
 ## Load, Add and Store Instructions
@@ -207,10 +213,13 @@ ABI names for registers serve as a standardized way to designate the purpose and
 ## Review ASM Function Calls
 * You write your C code in one file and your assembly code in a separate file.
 * In the assembly file, you declare assembly functions with appropriate signatures that match the calling conventions of your platform.
+  
   __C PROGRAM__
+  
   ![6f49376f-d8c4-4abc-8dd1-48135d693f38](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/523c50af-3617-45b3-a812-59d19b52463a)
   
 __Asseembly File__
+
 ![013479e4-03d3-41b5-a798-f0bb4207fcab](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/9c47dff4-9ca5-4462-aefc-5c3d94362f45)
 
 ## Simulate C Program using Function Call
