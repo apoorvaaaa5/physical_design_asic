@@ -47,7 +47,7 @@ __Memory Allocation and Stack Pointer__
 * The stack pointer is a register used by a program to keep track of the current position of the program's execution on the call stack.
   
 # Labwork_for_RISCV_Toolchain
-## C_Program##
+## C_Program
 We wrote a C program for calculating the sum from 1 to n using a text editor, leafpad.
 
 leafpad sumton.c
