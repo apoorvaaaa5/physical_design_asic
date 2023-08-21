@@ -67,4 +67,5 @@ Using the gcc compiler, we compiled the program to get the output.
 
 gcc sumton.c .\a.out
 
-
+## RISCV_GCC_Compiler_and_Dissemble
+Using the riscv gcc compiler riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sumton.o sumton.c, we compiled the C program.
