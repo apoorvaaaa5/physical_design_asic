@@ -15,7 +15,7 @@ The objective of VLSI (Very Large Scale Integration) physical design for ASICs (
 * RISC-V (Reduced Instruction Set Computing - Five).
      * It is an open-source Instruction Set Architecture (ISA) that has gained significant attention and adoption in the world of computer architecture and semiconductor design.
      * RISC architectures simplify the instruction set by focusing on a smaller set of instructions, each of which can be executed in a single clock cycle. This approach usually leads to faster execution of individual instructions.
-## From_Hardware_To_Apps ##
+## From_Apps_To_Hardware ##
 1.__Apps__: Application software, often referred to simply as "applications" or "apps," is a type of computer software that is designed to perform specific tasks or functions for end-users.
 
 2.__System software__: System software refers to a category of computer software that acts as an intermediary between the hardware components of a computer system and the user-facing application software. It provides essential services, manages hardware resources, and enables the execution of application programs. System software plays a critical role in maintaining the overall functionality, security, and performance of a computer system.'
@@ -45,3 +45,25 @@ __Memory Allocation and Stack Pointer__
 
 * Memory allocation refers to the process of assigning and managing memory segments for various data structures, variables, and objects used by a program. It involves allocating memory space from the system's memory pool and releasing it when it is no longer needed to prevent memory leaks.
 * The stack pointer is a register used by a program to keep track of the current position of the program's execution on the call stack.
+#Labwork_for_RISCV_Toolchain
+##C_Program##
+We wrote a C program for calculating the sum from 1 to n using a text editor, leafpad.
+
+leafpad sumton.c
+
+#include<stdio.h>
+
+int main(){
+	int i, sum=0, n=26;
+	for (i=1;i<=n; ++i) {
+	sum +=i;
+	}
+	printf("Sum of numbers from 1 to %d is %d \n",n,sum);
+	return 0;
+}
+
+Using the gcc compiler, we compiled the program to get the output.
+
+gcc sumton.c .\a.out
+
+
