@@ -226,4 +226,4 @@ __Asseembly File__
 __Compilation__: To compile C code and Asseembly file use the command riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o custom1to9.o custom1to9.c load.s this would generate object file custom1to9.o.
 __Execution__: To execute the object file run the command spike pk custom1to9.o
 
-![8aef424e-986d-4681-8062-5bfd16df84c0](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/a36676ff-1f04-4ba6-acaf-8e70a7cf7d6f)
+![8aef424e-986d-4681-8062-5bfd16df84c0](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/76d79352-a151-479c-b788-c6f40a829926)
