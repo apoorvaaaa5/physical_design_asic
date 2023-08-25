@@ -227,3 +227,21 @@ __Compilation__: To compile C code and Asseembly file use the command riscv64-un
 __Execution__: To execute the object file run the command spike pk custom1to9.o
 
 ![8aef424e-986d-4681-8062-5bfd16df84c0](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/76d79352-a151-479c-b788-c6f40a829926)
+
+## Lab to Run C-Program on RISCV-CPU
+git clone https://github.com/kunalg123/riscv_workshop_collaterals.git
+
+cd riscv_workshop_collaterals
+
+ls -ltr
+
+cd labs
+
+ls -ltr
+
+chmod 777 rv32im.sh
+
+./rv32im.sh
+
+
+![Screenshot from 2023-08-25 14-04-26](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/febd31f6-5ec7-433c-b712-db9952fc73d8)
