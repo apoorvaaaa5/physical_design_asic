@@ -320,9 +320,9 @@ chmod 777 rv32im.sh
    * It is a tool used for converting RTL design code to netlist.
    * Here, the synthesizer used is Yosys.
 
-*   Yosys
-   * It is an open-source framework for Verilog RTL synthesis and formal verification.
-   * Yosys provides a collection of tools and algorithms that enable designers to transform high-level RTL (Register Transfer Level) descriptions of digital circuits into optimized gate-level representations suitable for physical implementation on hardware.
+* Yosys
+    * It is an open-source framework for Verilog RTL synthesis and formal verification.
+    * Yosys provides a collection of tools and algorithms that enable designers to transform high-level RTL (Register Transfer Level) descriptions of digital circuits into optimized gate-level representations suitable for physical implementation on hardware.
 
       <img width="561" alt="263507834-5f879aaa-ec65-4362-9f91-f39999069732" src="https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/55e6d592-ec83-4de0-bda5-472861ace63f">
 
