@@ -314,3 +314,174 @@ chmod 777 rv32im.sh
 * 
   <img width="367" alt="263726055-ef3c8e61-2e45-4087-9584-f84fd3584cd3" src="https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/fe448d11-f0b4-466d-9f6f-6c25bd87bc43">
 <img width="367" alt="263726055-ef3c8e61-2e45-4087-9584-f84fd3584cd3" src="https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/cb3b6eea-e068-4155-a966-a7dbffe1f79d">
+
+# Introduction to Yosys and Logic Synthesis
+## Introduction to Yosys
+* Synthesizer
+   * It is a tool used for converting RTL design code to netlist.
+   * Here, the synthesizer used is Yosys.
+
+*   Yosys
+   * It is an open-source framework for Verilog RTL synthesis and formal verification.
+   * Yosys provides a collection of tools and algorithms that enable designers to transform high-level RTL (Register Transfer Level) descriptions of digital circuits into optimized gate-level representations suitable for physical implementation on hardware.
+
+      <img width="561" alt="263507834-5f879aaa-ec65-4362-9f91-f39999069732" src="https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/55e6d592-ec83-4de0-bda5-472861ace63f">
+
+* Design and .lib files are fed to the synthesizer to get a netlist file.
+* Netlist is the representation of the design in the form of standard cells in the .lib
+* Commands used to perform different opertions:
+   * read_verilog to read the design
+   * read_liberty to read the .lib file
+   * write_verilog to write out the netlist file
+
+*   To verify the synthesis
+    
+<img width="566" alt="263507983-fd73f6b8-f594-4e4f-bb1a-b600fb4475f8" src="https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/acc5668c-a3f6-4469-89b2-6cf9f30e8a69">
+
+* Netlist along with the tesbench is fed to the iverilog simulator.
+* The vcd file generated is fed to the gtkwave simulator.
+* The output on the simulator must be same as the output observed during RTL simulation.
+* Same RTL testbench can be used as the primary inputs and primary outputs remain same between the RTL design and synthesised netlist.
+
+## Introduction to Logic Synthesis
+* Logic Synthesis
+  * Logic synthesis is a process in digital design that transforms a high-level hardware description of a digital circuit, typically in a hardware description language (HDL) like Verilog or VHDL, into a lower-level representation composed of logic gates and flip-flops.
+  * The goal of logic synthesis is to optimize the design for various criteria such as performance, area, power consumption, and timing.
+
+* .lib
+  * It is a collection of logical modules like And, Or, Not etc.
+  * It has different flavors of same gate like 2 input AND gate, 3 input AND gate etc with different performace speed.
+
+* Why different flavors of gate?
+   * In order to make a circuit faster, the clock frequency should be high.
+   * For that, the time period of the clock should be as low as possible.
+
+<img width="269" alt="263508891-bc2242db-49e8-4c19-a06e-8f8e82f55729" src="https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/9dce3ead-1391-44a5-bd1c-a1e77ff794c8">
+
+* In a sequential circuit, clock period depends on:
+   * Clock to Q of flip-flop A.
+   * Propagation delay of combinational circuit.
+   * Setup time of flip-flop B.
+
+<img width="142" alt="263509150-112de4cd-6e0c-46ec-ad94-0cb6540af7e1" src="https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/b4b666b1-51b7-47fc-b43b-e7c5aed7e601">
+
+* Why need fast and slow cells?
+   * To ensure that there are no HOLD issues at flip-flop B, we require slow cells.
+   * For a smaller propagation time, we need faster cells.
+   * The collection forms the .lib
+
+* Faster Cells vs Slower Cells
+   * Load in digital circuit is of Capacitence.
+   * Faster the charging or dicharging of capacitance, lesser is the cell delay.
+   * However, for a quick charge/ discharge of capacitor, we need transistors capable of sourcing more current i.e, we need wide transistors.
+   * Wider transistors have lesser delay but consume more area and power.
+   * Narrow transistors have more delay but consume less area and performance.
+   * Faster cells come with a cost of area and power.
+
+* Selection of the Cells
+   * We have to guide the Synthesizer to choose the flavour of cells that is optimum for implementation of logic circuit.
+   * More use of faster cells leads to bad circuit in terms of power and area and also hold time violations.
+   * More use of slower cells leads to sluggish circuits amd may not meet the performance needs.
+   * Hence the guidance is offered to the synthesiser in the form of constraints.
+
+  # Labs using Yosys and Sky130 PDKs
+  ## Yosys good_mux
+  * To invoke yosys
+     * cd
+     * cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+     * Type yosys
+    
+![1c4373c0-898e-4f4a-9f82-5e78d12a183c](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/793508a1-8c72-4f30-965e-68978648c85a)
+
+*   To read the library
+
+ read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+* To read the design
+
+read_verilog good_mux.v
+
+* To syntheis the module
+
+ synth -top good_mux
+ 
+![45bc27ee-bf82-4332-8457-d536104e718a](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/7af092ce-be7b-4cf4-b383-a59307475640)
+
+ ![3ad010f9-ae2a-45c5-b6cd-b7f8175a82f5](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/126f06b7-e116-46e4-8d1a-2d8605d1c894)
+
+* To generate the netlist
+
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+![05d9f248-2b79-4668-8971-930a9cd06e6e](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/a770da67-0499-4174-b07a-8b7da0b43fcd)
+
+It gives a report of what cells are used and the number of input and output signals.
+
+* To see the logic realised
+
+show
+
+![23f7db1a-ff37-41bc-aa65-8a23e257ebb4](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/14565e1e-334a-4af5-ab25-f502330ef1b9)
+
+The mux is completely realised in the form of sky130 library cells.
+
+* To write the netlist
+
+  * write_verilog good_mux_netlist.v
+
+  * !gvim good_mux_netlist.v
+
+  * To view a simplified code
+
+  * write_verilog -noattr good_mux_netlist.v
+
+  * !gvim good_mux_netlist.v
+    
+ <img width="224" alt="263511429-74fc2a01-3c35-4db1-8220-96595c6c236e" src="https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/0d0012e2-bb51-43a6-b72a-8a17280f4c86">
+
+    ![99541706-871e-454e-8541-741d83c5b0f1](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/f559c053-9301-4e9a-8571-2099cb3423e2)
+
+# Introduction to Timing Dot Libs
+## Introduction to Dot Lib
+* To view the contents in the .lib
+
+gvim ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+<img width="443" alt="263514623-91edd5d4-bb82-48ec-b0bd-ca233d8a8063" src="https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/cb973116-e2a1-475e-b208-642a61646e8f">
+
+* The first line in the file library ("sky130_fd_sc_hd__tt_025C_1v80")  :
+
+  * tt : indicates variations due to process and here it indicates Typical Process.
+  * 025C : indicates the variations due to temperatures where the silicon will be used.
+  * 1v80 : indicates the variations due to the voltage levels where the silicon will be incorporated.
+
+* It also displays the units of various parameters.
+<img width="284" alt="263515297-d01d750e-fc1c-4de0-8e72-e6842c14f90b" src="https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/7efec7d3-bc11-4a8b-b57a-9983588974a6">
+
+  <img width="229" alt="263515621-39f26ac7-7302-4dc7-a517-6a5a031e2cae" src="https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/43cad51f-0c81-4025-af09-d79ffb5069ad">
+
+* It gives the features of the cells
+
+* To enable line number :se nu
+
+* To view all the cells :g//
+
+* To view any instance :/instance
+
+* Since there are 5 inputs, for all the 32 possible combinations, it gives the delay, power and all the other parameters for each cell.
+
+* The below image shows the power consumption and area comparision.
+
+<img width="911" alt="263518651-2a6b20a3-33d1-47e0-814f-6cff100ec2a7" src="https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/c45f2e63-ce6a-438a-8b77-cddce54e59c9">
+
+# Hierarchical vs Flat Synthesis
+## Hierarchical Synthesis Flat Synthesis
+Hierarchical Synthesis Hierarchical synthesis is an approach in digital design and logic synthesis where complex designs are broken down into smaller, more manageable modules or sub-circuits, and each module is synthesized individually. These synthesized modules are then integrated back into the overall design hierarchy. This approach helps manage the complexity of large designs and allows designers to work on different parts of the design independently.
+
+* The file we used in this lab is multiple_modules.v
+
+  * cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+  *  gvim multiple_modules.v
+    
+    ![b5ed1033-7736-4020-a2d4-4f3181c2c291](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/de43880d-7445-4f7b-b80f-815939279571)
+
