@@ -245,3 +245,32 @@ chmod 777 rv32im.sh
 
 
 ![Screenshot from 2023-08-25 14-04-26](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/febd31f6-5ec7-433c-b712-db9952fc73d8)
+
+# Introduction to Open-Source Simulator iVerilog
+## Introduction to iVerilog Design Testbench
+### Simulator
+* It is a tool used for simulating the design. It looks for the changes on the input signals to evaluate the outputs.
+* If there is no change in the inputs, the simulator doesn't evaluate the outputs.
+* RTL is checked for adherence to the spec by simulating the design.
+* The tool used here is iverilog .
+
+### iVerilog
+* It is an open-source Verilog simulator used for testing and simulating digital circuit designs described in the Verilog hardware description language (HDL).
+* Both the design and the testbench are fed to the simulator and it produces a vcd (value change dump) file.
+* In order to view the vcd file, we use the GTKwave where we can see the wave forms.
+  
+<img width="567" alt="263460822-37b643b5-e41e-425d-85f0-a55d7e190571" src="https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/75d06a84-a530-4ff2-8120-38549b7bee1c">
+
+###   Design
+* It is the actual verilog code or set of verilog codes which ahs the intended functionality to meet with the required specifications.
+* Verilog is used to describe the behavior and structure of digital circuits at different levels of abstraction, from high-level system descriptions down to low-level gate-level representations.
+
+### Testbench
+* A testbench is a specialized Verilog module or program used to verify the functionality and behavior of another Verilog module, circuit, or design. Testbenches are essential for testing and simulating digital designs before they are synthesized or manufactured as physical chips.
+
+* It is a setup to apply stimulus to the design to check its functionality.
+  
+<img width="526" alt="263461152-72e6ffe4-abba-41f1-b79f-240f125b410b" src="https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/eabc652b-3a84-4db9-8643-b5620dbe545f">
+
+# Labs using iVerilog and GTKwave
+## Introduction to Lab
