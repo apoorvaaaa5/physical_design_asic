@@ -274,3 +274,43 @@ chmod 777 rv32im.sh
 
 # Labs using iVerilog and GTKwave
 ## Introduction to Lab
+* Make a directory named vsd mkdir vsd.
+* cd vsd.
+* git clone https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git
+* Creates a folder called sky130RTLDesignAndSynthesisWorkshop in the vsd directory.
+  
+![95a4c360-2705-4aa2-b014-644029aad20d](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/58dfadeb-5983-4bba-9b0c-1eb87b65af38)
+
+* my_lib : contains all the library files
+
+* lib : contains sky130 standard cell library used for our synthesis
+
+* verilog_model : contains all the standard cell verilog modules of the standard cells contained in the .lib
+
+* verilog_files : contains all the verilog source files and testbench files which are required for labs
+
+  ## iVerilog GTKwave Part-1
+  * cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+
+* we have loaded the source code along with the testbench code into the iverilog simulator
+
+* iverilog good_mux.v tb_good_mux.v
+
+* We can see that an output file a.out has been created.
+
+* ./a.out
+
+* The output of the iverilog, a vcd file, is created which is loaded into the simualtor gtkwave.
+
+* gtkwave tb_good_mux.vcd
+  
+![2fac1505-0348-4915-8a46-f846fedcac2e](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/d5446913-3358-416d-9202-6d004689074a)
+<img width="497" alt="263481758-e7627aaf-6048-445a-aaae-1117212d9670" src="https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/7437ce56-2e23-49d0-bb4c-a113e0896c04">
+
+## iVerilog GTKwave Part-2
+* In order to view the contents in the files,
+
+* gvim tb_good_mux.v -o good_mux.v
+* 
+  <img width="367" alt="263726055-ef3c8e61-2e45-4087-9584-f84fd3584cd3" src="https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/fe448d11-f0b4-466d-9f6f-6c25bd87bc43">
+<img width="367" alt="263726055-ef3c8e61-2e45-4087-9584-f84fd3584cd3" src="https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/cb3b6eea-e068-4155-a966-a7dbffe1f79d">
