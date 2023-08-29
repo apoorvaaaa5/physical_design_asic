@@ -311,9 +311,8 @@ chmod 777 rv32im.sh
 * In order to view the contents in the files,
 
 * gvim tb_good_mux.v -o good_mux.v
-* 
+  
   <img width="367" alt="263726055-ef3c8e61-2e45-4087-9584-f84fd3584cd3" src="https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/fe448d11-f0b4-466d-9f6f-6c25bd87bc43">
-<img width="367" alt="263726055-ef3c8e61-2e45-4087-9584-f84fd3584cd3" src="https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/cb3b6eea-e068-4155-a966-a7dbffe1f79d">
 
 # Introduction to Yosys and Logic Synthesis
 ## Introduction to Yosys
