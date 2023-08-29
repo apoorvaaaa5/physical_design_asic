@@ -438,9 +438,10 @@ The mux is completely realised in the form of sky130 library cells.
     
  <img width="224" alt="263511429-74fc2a01-3c35-4db1-8220-96595c6c236e" src="https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/0d0012e2-bb51-43a6-b72a-8a17280f4c86">
 
-    ![99541706-871e-454e-8541-741d83c5b0f1](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/f559c053-9301-4e9a-8571-2099cb3423e2)
+  ![437ec67e-1b6d-4465-979c-f445cd5bdf5b](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/7dfcdadb-dd9f-49b2-be51-130e1b311459)
 
 # Introduction to Timing Dot Libs
+
 ## Introduction to Dot Lib
 * To view the contents in the .lib
 
