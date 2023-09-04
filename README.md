@@ -525,7 +525,7 @@ write_verilog -noattr multiple_modules_flat.v
 
 ![9c1ca36a-f8b9-4764-bc4b-35a3a403651d](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/80e7e6c3-4055-4cf5-95a2-4d300b3beef4)
 
-![Uploading 3df314a0-270a-48c0-bab6-9cdfce4c61d8.jpg…]()
+![6fec196f-b176-4595-9405-2c3871f99c92](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/cfcec9ea-2fe1-4343-8f1f-a95d41a750d0)
 
 
 # Various Flop Coding Styles and Optimization
