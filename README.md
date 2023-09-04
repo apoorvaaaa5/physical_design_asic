@@ -620,17 +620,18 @@ iverilog dff_syncres.v tb_dff_syncres.v
 ./a.out
 gtkwave tb_dff_syncres.vcd
 ![576fadc1-fc5e-47e9-b272-72af17615f52](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/98f7cff5-984b-44de-84cd-abbd92758dfc)
-![0a3251c5-fb3a-470b-baaf-c8402cca3e4a](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/5aea5ba7-9733-45f7-ba8f-35e7a22933ee)
+![21f0f0cf-4810-48b7-b097-df20434362d0](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/6724d0e8-22f9-4d8c-b163-3edf396f6e95)
+
 
 #### Synthesis
-cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
-yosys
-read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-read_verilog dff_syncres.v
-synth -top dff_syncres
-dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
-abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-show
+* cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+* yosys
+* read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+* read_verilog dff_syncres.v
+* synth -top dff_syncres
+* dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+* abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+* show
 ![5d671c59-7fbf-4951-b742-ec3d69d4bd14](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/9269a993-fb04-472b-a0c3-1e96f707476b)
 
 ### Interesting Optimisations
