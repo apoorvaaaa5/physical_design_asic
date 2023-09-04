@@ -485,3 +485,169 @@ Hierarchical Synthesis Hierarchical synthesis is an approach in digital design a
     
     ![b5ed1033-7736-4020-a2d4-4f3181c2c291](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/de43880d-7445-4f7b-b80f-815939279571)
 
+# Various Flop Coding Styles and Optimization
+## Why Flops and Flop Coding Styles
+### D Flip-Flop with Asynchronous Reset
+* When the reset is high, the output of the flip-flop is forced to 0, irrespective of the clock signal.
+* Else, on the positive edge of the clock, the stored value is updated at the output.
+gvim dff_asyncres_syncres.v
+
+![40012d2b-93a2-415a-b330-46ccf94c0f8d](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/a997d5e0-5299-48d9-b2e8-76fd6e3081e9)
+### D Flip_Flop with Asynchronous Set
+* When the set is high, the output of the flip-flop is forced to 1, irrespective of the clock signal.
+* Else, on positive edge of the clock, the stored value is updated at the output.
+  gvim dff_async_set.v
+
+  ![fd2d43eb-294b-4455-b922-818dcaa6893f](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/8161118b-d719-465f-a6ef-1d92e82cbfa2)
+
+### D Flip-Flop with Synchronous Reset
+* When the reset is high on the positive edge of the clock, the output of the flip-flop is forced to 0.
+* Else, on the positive edge of the clock, the stored value is updated at the output.
+  gvim dff_syncres.v
+
+  ![abf0aaf5-c8f5-44a7-b2d9-1e28c98867b1](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/dd371ce7-1c57-46c1-b354-7a0a4158b8a2)
+
+### D Flip-Flop with Asynchronous Reset and Synchronous Reset
+* When the asynchronous resest is high, the output is forced to 0.
+* When the synchronous reset is high at the positive edge of the clock, the output is forced to 0.
+* Else, on the positive edge of the clock, the stored value is updated at the output.
+* Here, it is a combination of both synchronous and asynchronous reset DFF.
+
+gvim dff_asyncres_syncres.v
+
+<img width="439" alt="263527791-8ee2f2a5-31e9-447c-a23f-b347fc7b642c" src="https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/3a398d52-6767-4088-bcf8-eb02c61770ad">
+
+## Lab Flop Synthesis Simulations
+### D Flip-Flop with Asynchronous Reset
+#### Simulation
+* cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+* iverilog dff_asyncres.v tb_dff_asyncres.v
+* ./a.out
+* gtkwave tb_dff_asyncres.vcd
+
+  ![59bdebb7-4d93-46bb-8f7e-9e98184a33fe](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/0e558325-5967-45e4-a1fe-760690ba0cf8)
+
+![2d51cd09-bcbe-4f51-88fe-bddf3c4767e0](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/ac06519a-7673-451a-a1ac-0f35159c8407)
+
+#### Synthesis
+* cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+
+* yosys
+
+* read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+* read_verilog dff_asyncres.v
+
+* synth -top dff_asyncres
+
+* dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+* abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+* show
+  ![c64213ea-63b8-46a3-a5c3-76133522e9f0](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/cc917d4a-4d20-414d-9f47-3ce0ea653945)
+
+### D Flip_Flop with Asynchronous Set
+#### Simulation 
+* cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+* iverilog dff_async_set.v tb_dff_async_set.v
+* ./a.out
+* gtkwave tb_dff_async_set.vcd
+  ![576fadc1-fc5e-47e9-b272-72af17615f52](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/cdf21d95-d417-4f44-a3b5-3583211f7925)
+
+![ecda1a4e-26ba-433e-9085-d64a0e465a2f](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/9ad0064a-4855-4f17-8027-80b8bb126ee5)
+
+#### Synthesis
+cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_async_set.v
+synth -top dff_async_set
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+![eb8b6a8d-f05d-42ef-9c26-b9db75eb552b](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/aa65cf8c-87a6-4ee4-880b-4b37899156d5)
+
+### D Flip-Flop with Synchronous Reset
+#### Simulation
+cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+iverilog dff_syncres.v tb_dff_syncres.v
+./a.out
+gtkwave tb_dff_syncres.vcd
+![576fadc1-fc5e-47e9-b272-72af17615f52](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/98f7cff5-984b-44de-84cd-abbd92758dfc)
+![0a3251c5-fb3a-470b-baaf-c8402cca3e4a](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/5aea5ba7-9733-45f7-ba8f-35e7a22933ee)
+
+#### Synthesis
+cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_syncres.v
+synth -top dff_syncres
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+![5d671c59-7fbf-4951-b742-ec3d69d4bd14](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/9269a993-fb04-472b-a0c3-1e96f707476b)
+
+### Interesting Optimisations
+gvim mult_2.v
+![95bfdb80-0d56-47fa-a050-b2f52ecece6e]
+(https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/d350e949-4612-4fff-baa2-e0dd49be8397)
+
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog mult_2.v
+synth -top mul2
+
+![e1dd1c29-d78d-497d-8b1f-dfb273ab5472](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/7f0ac279-bb5f-4718-92ee-86656f2a16a4)
+
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+
+![ccd01ca1-4a86-4d9d-9c58-ee6543f1e16e](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/e1a71952-55c0-4870-9018-1239f4005357)
+
+write_verilog -noattr mul2_netlist.v
+!gvim mul2_netlist.v
+
+![d6eba8cd-01d0-41ce-b3a3-68b89c82fbf5](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/fa07cee6-260c-44f8-9667-3f0b93731ba3)
+
+* gvim mult_8.v
+  
+![e143b7e2-867b-433f-ba6e-1472727910fd](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/9b85f794-70c5-490f-893c-6fc61daee7b1)
+
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib  
+
+read_verilog mult_8.v
+
+synth -top mult8
+
+![60dc3bdb-a6a7-4530-8c0a-51b97837a250](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/a233f77a-0167-4f32-9883-0f77d9b27d78)
+
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+
+![d40a1e66-7f9a-4e79-b2da-f11b65efb6a3](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/9ca28175-d0ec-4c83-a5cd-c4477f2b7bea)
+
+write_verilog -noattr mult8_netlist.v
+!gvim mult8_netlist.v
+
+![84375996-b70b-4572-8017-9a4c8daab8ad](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/9174fd8f-d841-45e6-b96d-dad678f0c9fd)
+
+# Introduction to Optimisations
+## Combinational Optimisation
+* Combinational logic refers to logic circuits where the outputs depend only on the current inputs and not on any previous states.
+* Combinational optimization is a field of study in computer science and operations research that focuses on finding the best possible solution from a finite set of options for problems that involve discrete variables and have no inherent notion of time.
+* Optimising the combinational logic circuit is squeezing the logic to get the most optimized digital design so that the circuit finally is area and power efficient.
+Techniques for Optimisations:
+   * Constant propagation is an optimization technique used in compiler design and digital circuit synthesis to improve the efficiency of code and circuit implementations by replacing variables or expressions with their constant values where applicable.
+   * Boolean logic optimization, also known as logic minimization or Boolean function simplification, is a process in digital design that aims to simplify Boolean expressions or logic circuits by reducing the number of terms, literals, and gates required to implement a given logical function.
+
+## Sequential Logic Optimisations
+* Sequential logic optimizations involve improving the efficiency, performance, and resource utilization of digital circuits that include memory elements like flip-flops and latches.
+* Optimizing sequential logic is crucial in ensuring that digital circuits meet timing requirements, consume minimal power, and occupy the least possible area while maintaining correct functionality.
+* Optimisation methods:
+  * Sequential constant propagation, also known as constant propagation across sequential elements, is an optimization technique used in digital design to identify and propagate constant values through sequential logic elements like flip-flops and registers. This technique aims to replace variable values with their known constant values at various stages of the logic circuit, optimizing the design for better performance and resource utilization.
+  * State optimization, also known as state minimization or state reduction, is an optimization technique used in digital design to reduce the number of states in finite state machines (FSMs) while preserving the original functionality.
+  * Sequential logic cloning, also known as retiming-based cloning or register cloning, is a technique used in digital design to improve the performance of a circuit by duplicating or cloning existing registers (flip-flops) and introducing additional pipeline stages. This technique aims to balance the critical paths within a circuit and reduce its overall clock period, leading to improved timing performance and better overall efficiency.
+  * Retiming is an optimization technique used in digital design to improve the performance of a circuit by repositioning registers (flip-flops) along its paths to balance the timing and reduce the critical path delay. The primary goal of retiming is to achieve a shorter clock period without changing the functionality of the circuit.
+
+    # Combinational Logic Optimisations
+    
