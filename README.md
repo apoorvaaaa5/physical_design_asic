@@ -632,7 +632,8 @@ gtkwave tb_dff_syncres.vcd
 * dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
 * abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 * show
-![5d671c59-7fbf-4951-b742-ec3d69d4bd14](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/9269a993-fb04-472b-a0c3-1e96f707476b)
+
+<img width="925" alt="263532077-ff5b11e7-11a8-40c9-9e08-e090eeb0f547" src="https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/622d1d89-b0c9-497d-af9b-c8e678434ab4">
 
 ### Interesting Optimisations
 gvim mult_2.v
@@ -696,4 +697,311 @@ Techniques for Optimisations:
   * Retiming is an optimization technique used in digital design to improve the performance of a circuit by repositioning registers (flip-flops) along its paths to balance the timing and reduce the critical path delay. The primary goal of retiming is to achieve a shorter clock period without changing the functionality of the circuit.
 
     # Combinational Logic Optimisations
-    
+    ## opt_check
+    * gvim opt_check.v
+    * 
+    ![cab459e9-e7eb-40fd-a1ea-6c642f96c2d7](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/c3c173a8-eb70-4b21-9927-32dfbb72d534)
+
+* read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+* read_verilog opt_check.v
+
+* synth -top opt_check
+
+* opt_clean -purge
+
+* abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+* show
+  
+![23cffd72-0669-44d7-8363-e4dc15f68ee1](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/c91e07ac-a8a3-4aa9-8a2d-4904d9f3a788)
+![5161d771-b8ca-455c-96dd-a2ae621dda29](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/e7cef776-06e1-49ea-94f3-13707c0807a9)
+
+## opt_check2
+* gvim opt_check2.v
+  ![5e7ced59-e5b4-4383-a10e-c8968b7a81f2](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/8ce28299-6493-49bf-b3cf-b48b72128475)
+* read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+* read_verilog opt_check2.v
+
+* synth -top opt_check2
+
+* opt_clean -purge
+
+* abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+* show
+ ![9d5e779f-ca51-4af0-95b8-5c18dc3f35dc](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/69ddb1ef-53a2-4736-b883-34b200de36e2)
+
+ ![ed8455b4-5fea-49f8-a532-0d29638fffc5](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/d4b472f9-8713-4e27-a502-df2350ef0a90)
+
+## opt_check3
+* gvim opt_check3.v
+* ![1927cd49-68f8-4f81-9617-38e119841eb8](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/058f471f-6e68-4762-9d30-e91f321b9143)
+* read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+* read_verilog opt_check3.v
+* synth -top opt_check3
+* opt_clean -purge
+* abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+* show
+  ![a55e5f3e-ec48-4b34-a8e9-a7446c89beae](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/903556f7-556c-425e-87aa-596fe5231f63)
+
+![38a1f2a0-a7b4-4bf7-a3cd-66d47f0176a3](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/ace92b83-9ab7-4485-86ca-3ce4ca60f3dc)
+
+## opt_check4
+* gvim opt_check4.v
+* ![ffe71554-8d6f-47aa-ac99-1d58fcd6e93c](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/250ef33c-78db-4726-ae64-6fa2b0f5299b)
+
+* read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+* read_verilog opt_check4.v
+* synth -top opt_check4
+* opt_clean -purge
+* abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+* show
+* ![87e1281b-5c25-40c1-882a-d35b20db9ccf](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/37220ee0-21ba-4c1c-85e4-9a15a5ec3689)
+![92635bd4-a454-41a9-a316-a6dfad75ecd2](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/d864f493-4b62-42cc-bce8-1c3ba37c6655)
+
+## multiple_module_opt
+* gvim multiple_module_opt.v
+* ![a7e8a067-cea7-474d-bca3-0f99c4a49782](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/a1cb3353-2c1e-47c5-ad30-20b65fc6f97c)
+* read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+* read_verilog multiple_module_opt.v
+* synth -top multiple_module_opt
+* opt_clean -purge
+* abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+* show
+* ![cdf38699-9ee2-4560-905d-12edf312c7f2](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/00d86c50-d1a4-4bef-8001-d8363a142ce7)
+<img width="301" alt="263543923-1344d22d-51f5-439e-bc34-96b2a742474e" src="https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/afd2efa8-5d48-4c2a-a63a-ebead25fd25a">
+
+# Sequential Logic Optimisations
+## dff_const1
+* gvim dff_const1.v
+* ![b2f0c5e2-167a-40c7-8a94-9ecbeb113842](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/f6c859ff-c569-4f82-aebe-bb9dd0eec8c0)
+### Simulation 
+* iverilog dff_const1.v tb_dff_const1.v
+* ./a.out
+* gtkwave tb_dff_const1.vcd
+  ![3d07ced2-4e37-4944-a787-eae81daab66b](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/cbcc3957-d6c6-4373-a6dd-80a56ecc4b19)
+
+### Synthesis
+* read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+* read_verilog dff_const1.v
+* synth -top dff_const1
+* dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+* abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+* show
+* ![1525412d-cf61-4b0e-bd31-953d9580aeae](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/ae4925b2-6a90-4d7c-b06e-1431189663e6)
+![f6c9b553-1bed-4ab8-bdea-1146f5ed12d1](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/1f5065fa-a57f-4ee3-be1c-d5bfd8a6505b)
+
+## dff_const2
+* gvim dff_const2.v
+* ![82b316fa-03a3-41fe-a915-0c0bf507a206](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/94afc941-b3bd-4912-b45c-8455cc2d5dfe)
+### Simulation 
+* iverilog dff_const2.v tb_dff_const2.v
+* ./a.out
+* gtkwave tb_dff_const2.vcd
+* ![c1cb8106-1222-4c8a-b2ae-04c3c1de1965](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/d1490bf9-e7a4-4f36-a425-364348b1951d)
+### Synthesis
+* read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+* read_verilog dff_const2.v
+* synth -top dff_const2
+* dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+* abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+* show
+* ![03f7196f-608c-46c7-812f-0a0bee22919e](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/0b8033d4-ccf4-494a-b353-2e5da68ea295)
+![b7584a1c-2012-459c-b2bb-16d784278163](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/1f7edc3a-1e3f-470f-b1e6-5a616a736553)
+
+## dff_const3
+* gvim dff_const3.v
+* ![550626e9-5382-4919-9a83-c7fa58079ef0](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/61ac8ff0-ca80-4860-8b57-06edbc5f6835)
+  ### Simulation
+  * iverilog dff_const3.v tb_dff_const3.v
+* ./a.out
+* gtkwave tb_dff_const3.vcd
+* ![425db6ff-57dc-47c7-b973-4c6c3cc26b9c](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/79ac6b4e-a1a2-4509-aa62-eda64dde063c)
+### Synthesis
+* read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+* read_verilog dff_const3.v
+* synth -top dff_const3
+* dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+* abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+* show
+* ![c3b2358c-2422-425b-ae70-74c3fb0b7bd3](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/6a3da587-5895-4527-91c1-41babc305653)
+![669de15b-501b-4537-98d4-65f2267dcb73](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/cae84712-7c52-4695-9081-866a8653b8ec)
+
+## dff_const4
+* gvim dff_const4.v
+* ![c495e8ed-3bb6-4421-a7bb-d45a4bf32450](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/adf7f2fa-9c47-444c-b2e9-4b741da5db7e)
+
+### Simulation 
+* iverilog dff_const4.v tb_dff_const4.v
+* ./a.out
+* gtkwave tb_dff_const4.vcd
+* ![805fd18d-e805-46b6-8f5d-0f15a1f6bc35](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/99f8abb1-855d-448e-9da3-a9b2e7d907b9)
+
+### Synthesis
+* read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+* read_verilog dff_const4.v
+* synth -top dff_const4
+* dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+* abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+* show
+* ![ec49c474-2dcf-4cf5-b78e-4fee578bce17](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/1b2cb29d-14bc-41ea-9f6f-cdeb1c32daef)
+![095b675c-0453-4898-87dd-225f67795eae](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/e96f6fa4-1f86-4541-9e02-fda89d8b6a94)
+
+# Sequential Optimisations for Unused Outputs
+## counter_opt
+* gvim counter
+* ![250e225d-60d7-45b5-82e0-b593ca93512f](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/d093a87c-6b71-45e9-abfe-1db1681eec0a)
+_opt.v
+* read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+* read_verilog counter_opt.v
+* synth -top counter_opt
+* dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+* abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+* show
+![3f1d0e7d-92ba-454b-a86b-7d4acebdfafd](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/73cb89f8-d2ad-4bb5-bab9-e40a65b2ee7f)
+![7af22a9d-de83-46fe-a6f0-4cf54e23099c](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/8c97d0b9-36c6-43e8-a0eb-27837873a126)
+
+## counter_opt2
+* gvim counter_opt2.v
+* ![841542c3-3e8d-41df-a149-d26efa5f5bf7](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/6e3e86db-16d4-4dfc-acc7-ce172ff14b72)
+* read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+* read_verilog counter_opt2.v
+* synth -top counter_opt2
+* dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+* abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+* show
+* ![3f1d0e7d-92ba-454b-a86b-7d4acebdfafd](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/bd5332cf-3120-49db-a669-ce95abe40fe4)
+![d5e05216-fca8-4d45-8448-268650419428](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/87b23de1-4386-48f0-a3c5-1db754aef4fd)
+
+# GLS Synthesis-Simulation Mismatch and Blocking Non-blocking Statements
+## GLS Concepts And Flow Using Iverilog
+* Gate Level Simualtion
+   * Gate-level simulation is a technique used in digital design and verification to validate the functionality of a digital circuit at the gate-level implementation.
+  * It involves simulating the circuit using the actual logic gates and flip-flops that make up the design, as opposed to higher-level abstractions like RTL (Register Transfer Level) descriptions.
+  * This type of simulation is typically performed after the logic synthesis process, where a high-level description of the design is transformed into a netlist of gates and flip-flops.
+  * We perform this to verify logical correctness of the design after synthesizing it. Also ensuring the timing of the design is met.
+    <img width="608" alt="263759047-6298b067-2f45-4dbc-ad25-762ac3d8be63" src="https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/90cab3cc-aee7-4359-a98a-8964435f11d5">
+* Synthesis-Simulation Mismatch
+   * A synthesis-simulation mismatch refers to a situation in digital design where the behavior of a circuit, as observed during simulation, doesn't match the expected or desired behavior of the circuit after it has been synthesized.
+   * This discrepancy can occur due to various reasons, such as timing issues, optimization conflicts, and differences in modeling between the simulation and synthesis tools.
+  * This mismatch is a critical concern in digital design because it indicates that the actual hardware implementation might not perform as expected, potentially leading to functional or timing failures in the fabricated chip.
+  ## Blocking Statements
+  * Blocking statements are executed sequentially in the order they appear in the code and have an immediate effect on signal assignments.
+  * Example:
+     module BlockingExample(input A, input B, input C, output Y, output Z);
+  wire temp;
+
+  // Blocking assignment
+  assign temp = A & B;
+
+  always @(posedge C) begin
+      // Blocking assignment
+      Y = temp;
+      Z = ~temp;
+  end
+ endmodule
+
+* Non-Blocking Statements
+   * Non-blocking assignments are used to model concurrent signal updates, where all assignments are evaluated simultaneously and then scheduled to be updated at the end of the time step.
+  * Example:
+    module NonBlockingExample(input clock, input D, input reset, output reg Q);
+
+ always @(posedge clock or posedge reset) begin
+     if (reset)
+         Q <= 0;  // Reset the flip-flop
+     else
+         Q <= D;  // Non-blocking assignment to update Q with D on clock edge
+ end
+endmodule
+* Caveats with Blocking Statements
+   * Blocking statements in hardware description languages like Verilog have their uses, but there are certain caveats and considerations to be aware of when working with them. Here are some important caveats associated with using blocking statements:
+Procedural Execution: Blocking statements are executed sequentially in the order they appear within a procedural block (such as an always block). This can lead to unexpected behavior if the order of execution matters and is not well understood.
+  * Lack of Parallelism: Blocking statements do not accurately represent the parallel nature of hardware. In hardware, multiple signals can update concurrently, but blocking statements model sequential behavior. As a result, using blocking statements for modeling complex concurrent logic can lead to incorrect simulations.
+  * Race Conditions: When multiple blocking assignments operate on the same signal within the same procedural block, a race condition can occur. The outcome of such assignments depends on their order of execution, which might lead to inconsistent or unpredictable behavior.
+  * Limited Representation of Hardware: Hardware systems are inherently concurrent and parallel, but blocking statements do not capture this aspect effectively. Using blocking assignments to model complex combinational or sequential logic can lead to models that are difficult to understand, maintain, and debug.
+  * Combinatorial Loops: Incorrect use of blocking statements can lead to unintentional combinational logic loops, which can result in simulation or synthesis errors.
+Debugging Challenges: Debugging code with many blocking assignments can be challenging, especially when trying to track down timing-related issues.
+  * Not Suitable for Flip-Flops: Blocking assignments are not suitable for modeling flip-flop behavior. Non-blocking assignments (<=) are generally preferred for modeling flip-flop updates to ensure accurate representation of concurrent behavior.
+  * Sequential Logic Misrepresentation: Using blocking assignments to model sequential logic might not capture the intended behavior accurately. Sequential elements like registers and flip-flops are better represented using non-blocking assignments.
+  * Synthesis Implications: The behavior of blocking assignments might not translate well during synthesis, leading to potential mismatches between simulation and synthesis results.
+
+ # Labs on GLS and Synthesis-Simulation Mismatch
+  ## ternary_operator_mux
+    * gvim teranry_operator_mux.v
+    <img width="370" alt="263764297-8539ab94-8f5a-4bff-8465-eb8bb6ca83b8" src="https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/39673c7e-9344-4557-afbf-9d224466f75e">
+
+### Simulation
+* iverilog ternary_operator_mux.v tb_ternary_operator_mux.v
+* ./a.out
+* gtkwave tb_ternary_operator_mux.vcd
+* ![c8c9bd44-7d5c-4b10-b8bc-5844ca7b00c0](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/b4cc1a83-2152-4026-93cb-9d701c386e4e)
+### synthesis
+* read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+* read_verilog ternary_operator_mux.v
+* synth -top ternary_operator_mux
+* abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+* show
+* ![1ca47dd0-1336-46be-a890-78e6214e64b2](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/68765e4b-5711-4997-aa7d-5586ace0a770)
+![62917943-6e8d-444a-909c-c613dcb1526a](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/a6161550-c8ee-4ed4-9698-8e870dbb5c34)
+
+## GLS to Gate-Level Simulation
+* iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v ternary_operator_mux_net.v tb_ternary_operator_mux.v
+./a.out
+gtkwave tb_bad_mux.vcd
+![c8c9bd44-7d5c-4b10-b8bc-5844ca7b00c0](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/523c2017-3136-4e1e-a786-32a27ab291ee)
+
+### bad_mux
+* gvim bad_mux.v
+* ![e7fe700f-1b39-4837-b5a2-e311f28c3929](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/f6641b98-97ac-4b5c-84e3-9712f10404d5)
+  #### Simulation
+* iverilog bad_mux.v tb_bad_mux.v
+./a.out
+gtkwave tb_bad_mux.vcd
+![73ce45f4-6b97-45e5-9b07-0c1c89b0660b](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/3268dde1-6097-469f-91da-f40fa2b25597)
+#### Synthesis
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+read_verilog bad_mux.v
+
+synth -top bad_mux
+
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+show
+![0756b53e-07c9-4c5c-977e-bcb1c149f4fa](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/4777d770-2713-4ea6-8ab0-3466687969f8)
+![a01f00ce-3e60-4b0c-8ebf-cd477cc4f14b](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/240ca440-3919-468b-a374-4f72b225b0d9)
+
+### GLS to Gate-Level Simulation
+iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v bad_mux_net.v tb_bad_mux.v
+./a.out
+gtkwave tb_bad_mux.vcd
+![73ce45f4-6b97-45e5-9b07-0c1c89b0660b](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/3b30f361-cd91-42da-9439-b1cf285b71c0)
+
+# Labs on Synth-Sim Mismatch for Blocking Statement
+## blocking_caveat
+* gvim blocking_caveat.v
+* ![1acb54fb-113a-46e4-9e0e-6bb9f470313a](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/4bcf2529-b792-44f1-bfa3-005b0302d18f)
+## Simulation
+* iverilog blocking_caveat.v tb_blocking_caveat.v
+  
+./a.out
+
+gtkwave tb_blocking_caveat.vcd
+![134a6fc1-741c-4902-859e-6f804d68ef33](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/1efc499e-271e-4260-a1f9-42c65fd8edd2)
+## Synthesis
+* read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+* read_verilog blocking_caveat.v
+* synth -top blocking_caveat
+* abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+* show
+* ![4a440cef-aaed-4c84-b6ff-0b466318ac3a](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/dc849ec2-0820-4ecb-86d8-0a25cced8a18)
+  ![a439e7e6-e323-4a96-92a1-5e7879dd7b91](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/859c2657-7ded-4c67-a8ff-e8d284dff94a)
+
+## GLS to Gate-Level Simulation
+* iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v blocking_caveat_net.v tb_blocking_caveat.v
+* ./a.out
+* gtkwave tb_blocking_caveat.vcd
+* ![4e198f69-baea-4d04-80d9-a3eac231a3dd](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/5bffba66-2b95-467e-8c4b-9838b78d44b5)
+![197b3e49-0445-4198-a6a7-2df7e0f3c416](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/94c6a781-bb3b-4d3d-a6fc-048b101bc00c)
