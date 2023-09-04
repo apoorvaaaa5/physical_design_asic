@@ -609,7 +609,8 @@ synth -top dff_async_set
 dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
-![239dfdae-71a0-45ac-8867-85ae4bf805e8](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/939c9232-307f-4e20-ac78-cee1a872a9e4)
+
+![239dfdae-71a0-45ac-8867-85ae4bf805e8](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/46098658-352c-4d80-9799-070604e62478)
 
 
 ### D Flip-Flop with Synchronous Reset
