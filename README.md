@@ -485,6 +485,49 @@ Hierarchical Synthesis Hierarchical synthesis is an approach in digital design a
     
     ![b5ed1033-7736-4020-a2d4-4f3181c2c291](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/de43880d-7445-4f7b-b80f-815939279571)
 
+* multiple_modules instantiates sub_module1 and sub_module2
+
+* Launch yosys
+
+* read the library file read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+* read the verilog file  read_verilog multiple_modules.v
+
+* synth -top multiple_modules to set it as top module
+  
+  ![ca59a918-2af8-4cb4-8334-0ff321582c83](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/dbed2887-5357-4770-9352-a1245f8483de)
+![a83418ae-c4b0-4e2c-ac6a-1f3ea341f1f6](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/0e3c5b85-a236-4fb5-8671-77b224080890)
+
+* abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+* To view the netlist show multiple_modules
+
+![bcbec4fc-327e-4e2f-a8d4-7974ddd0b5e7](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/6fa494b2-0955-43e5-b2f8-899fb3038590)
+
+* Here it shows sub_module1 and sub_module2 instead of AND gate and OR gate.
+* write_verilog -noattr multiple_modules_hier.v
+* !gvim multiple_modules_hier.v
+  ![3f7ef3bf-7a28-4513-9ce3-c76d6e73e7da](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/21544438-17e1-46f1-8a8c-4e3d82835845)
+![69161862-f9c1-4376-9e2f-933b17f6e823](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/081ee167-5b52-4502-967a-e998ea9fb9a3)
+
+Flattened Synthesis Flattened synthesis is the opposite of hierarchical synthesis. Instead of maintaining the hierarchical structure of the design during synthesis, flattened synthesis combines all modules and sub-modules into a single, flat representation. This means that the entire design is synthesized as a single unit, without preserving the modular organization present in the original high-level description.
+* Launch yosys
+* read the library file read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+* read the verilog file  read_verilog multiple_modules.v
+* synth -top multiple_modules to set it as top module
+* abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+* flatten to write out a flattened netlist
+* show
+  <img width="924" alt="263521846-bd069e1f-4da5-473a-b041-562cbef042f0" src="https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/a05f9038-b45b-4f36-9ae7-df60b43238a3">
+
+write_verilog -noattr multiple_modules_flat.v
+!gvim multiple_modules_flat.v
+
+![9c1ca36a-f8b9-4764-bc4b-35a3a403651d](https://github.com/apoorvaaaa5/physical_design_asic/assets/117642634/80e7e6c3-4055-4cf5-95a2-4d300b3beef4)
+
+![Uploading 3df314a0-270a-48c0-bab6-9cdfce4c61d8.jpg…]()
+
+
 # Various Flop Coding Styles and Optimization
 ## Why Flops and Flop Coding Styles
 ### D Flip-Flop with Asynchronous Reset
